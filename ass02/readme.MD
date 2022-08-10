@@ -1,4 +1,4 @@
-# pecidence
+# precidence
 +, -, !, ~ (Unary)
 +,- (Binary)
 <<, >>
