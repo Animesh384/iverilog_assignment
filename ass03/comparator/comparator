@@ -1,0 +1,80 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\animesh\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\animesh\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\animesh\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\animesh\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\animesh\iverilog\lib\ivl\va_math.vpi";
+S_000001da4f127e90 .scope module, "test_comparator" "test_comparator" 2 1;
+ .timescale 0 0;
+v000001da4f132000_0 .var "a", 0 0;
+v000001da4f132780_0 .var "b", 0 0;
+v000001da4f131ce0_0 .net "e", 0 0, L_000001da4f132890;  1 drivers
+v000001da4f131d80_0 .net "g", 0 0, L_000001da4f132a50;  1 drivers
+v000001da4f132320_0 .net "l", 0 0, L_000001da4f132f20;  1 drivers
+S_000001da4f128270 .scope module, "a1" "comparator" 2 4, 3 1 0, S_000001da4f127e90;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "g";
+    .port_info 3 /OUTPUT 1 "e";
+    .port_info 4 /OUTPUT 1 "l";
+L_000001da4f0e9e50 .functor NOT 1, v000001da4f132780_0, C4<0>, C4<0>, C4<0>;
+L_000001da4f132a50 .functor AND 1, v000001da4f132000_0, L_000001da4f0e9e50, C4<1>, C4<1>;
+L_000001da4f132eb0 .functor NOT 1, v000001da4f132000_0, C4<0>, C4<0>, C4<0>;
+L_000001da4f132f20 .functor AND 1, L_000001da4f132eb0, v000001da4f132780_0, C4<1>, C4<1>;
+L_000001da4f132e40 .functor NOT 1, v000001da4f132780_0, C4<0>, C4<0>, C4<0>;
+L_000001da4f132c80 .functor AND 1, v000001da4f132000_0, L_000001da4f132e40, C4<1>, C4<1>;
+L_000001da4f132dd0 .functor NOT 1, v000001da4f132000_0, C4<0>, C4<0>, C4<0>;
+L_000001da4f132f90 .functor AND 1, L_000001da4f132dd0, v000001da4f132780_0, C4<1>, C4<1>;
+L_000001da4f132890 .functor NOT 1, L_000001da4f131920, C4<0>, C4<0>, C4<0>;
+v000001da4f103220_0 .net *"_ivl_0", 0 0, L_000001da4f0e9e50;  1 drivers
+v000001da4f102dc0_0 .net *"_ivl_10", 0 0, L_000001da4f132c80;  1 drivers
+v000001da4f0ed6e0_0 .net *"_ivl_12", 0 0, L_000001da4f132dd0;  1 drivers
+v000001da4f128400_0 .net *"_ivl_14", 0 0, L_000001da4f132f90;  1 drivers
+v000001da4f0e9db0_0 .net *"_ivl_16", 0 0, L_000001da4f131920;  1 drivers
+v000001da4f1325a0_0 .net *"_ivl_4", 0 0, L_000001da4f132eb0;  1 drivers
+v000001da4f131a60_0 .net *"_ivl_8", 0 0, L_000001da4f132e40;  1 drivers
+v000001da4f131880_0 .net "a", 0 0, v000001da4f132000_0;  1 drivers
+v000001da4f132500_0 .net "b", 0 0, v000001da4f132780_0;  1 drivers
+v000001da4f131e20_0 .net "e", 0 0, L_000001da4f132890;  alias, 1 drivers
+v000001da4f132140_0 .net "g", 0 0, L_000001da4f132a50;  alias, 1 drivers
+v000001da4f1320a0_0 .net "l", 0 0, L_000001da4f132f20;  alias, 1 drivers
+L_000001da4f131920 .arith/sum 1, L_000001da4f132c80, L_000001da4f132f90;
+    .scope S_000001da4f127e90;
+T_0 ;
+    %vpi_call 2 6 "$dumpfile", "gtkwave.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars" {0 0 0};
+    %vpi_call 2 8 "$display", $time, "time|a|b|g|e|l|" {0 0 0};
+    %vpi_call 2 9 "$monitor", $time, "time|%d|%d|%d|%d|%d|", v000001da4f132000_0, v000001da4f132780_0, v000001da4f131d80_0, v000001da4f131ce0_0, v000001da4f132320_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001da4f132000_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001da4f132780_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001da4f132000_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001da4f132780_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001da4f132000_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001da4f132780_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001da4f132000_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001da4f132780_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 14 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    ".\test_comparator.v";
+    ".\1bitcompa.v";
