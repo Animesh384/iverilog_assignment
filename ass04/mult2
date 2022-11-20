@@ -1,51 +1,50 @@
-#! /c/Source/iverilog-install/bin/vvp
-:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision + 0;
-:vpi_module "C:\iverilog\lib\ivl\system.vpi";
-:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
-:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
-:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
-:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000002abf10ba8d0 .scope module, "test_" "test_" 2 1;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55625ba391c0 .scope module, "test_" "test_" 2 1;
  .timescale 0 0;
-v000002abf1175260_0 .net "f", 0 0, L_000002abf10b6f80;  1 drivers
-v000002abf1175300_0 .var "i0", 0 0;
-v000002abf11753a0_0 .var "i1", 0 0;
-v000002abf1175440_0 .var "s", 0 0;
-S_000002abf11750d0 .scope module, "a1" "bitmutiplexcer" 2 4, 3 1 0, S_000002abf10ba8d0;
+v0x55625ba6bd10_0 .net "f", 0 0, L_0x55625ba6c330;  1 drivers
+v0x55625ba6bdd0_0 .var "i0", 0 0;
+v0x55625ba6bea0_0 .var "i1", 0 0;
+v0x55625ba6bfa0_0 .var "s", 0 0;
+S_0x55625ba59b10 .scope module, "a1" "bitmutiplexcer" 2 4, 3 1 0, S_0x55625ba391c0;
  .timescale 0 0;
-    .port_info 0 /INPUT 1 "s";
-    .port_info 1 /INPUT 1 "i0";
-    .port_info 2 /INPUT 1 "i1";
-    .port_info 3 /OUTPUT 1 "f";
-L_000002abf10bbf50 .functor NOT 1, v000002abf1175440_0, C4<0>, C4<0>, C4<0>;
-L_000002abf10b6910 .functor AND 1, L_000002abf10bbf50, v000002abf1175300_0, C4<1>, C4<1>;
-L_000002abf10b6d80 .functor AND 1, v000002abf1175440_0, v000002abf11753a0_0, C4<1>, C4<1>;
-L_000002abf10b6f80 .functor OR 1, L_000002abf10b6910, L_000002abf10b6d80, C4<0>, C4<0>;
-v000002abf10ba630_0 .net *"_ivl_0", 0 0, L_000002abf10bbf50;  1 drivers
-v000002abf10ba6d0_0 .net *"_ivl_2", 0 0, L_000002abf10b6910;  1 drivers
-v000002abf10b6870_0 .net *"_ivl_4", 0 0, L_000002abf10b6d80;  1 drivers
-v000002abf10bbcd0_0 .net "f", 0 0, L_000002abf10b6f80;  alias, 1 drivers
-v000002abf10bbd70_0 .net "i0", 0 0, v000002abf1175300_0;  1 drivers
-v000002abf10bbe10_0 .net "i1", 0 0, v000002abf11753a0_0;  1 drivers
-v000002abf10bbeb0_0 .net "s", 0 0, v000002abf1175440_0;  1 drivers
-    .scope S_000002abf10ba8d0;
+    .port_info 0 /INPUT 1 "s"
+    .port_info 1 /INPUT 1 "i0"
+    .port_info 2 /INPUT 1 "i1"
+    .port_info 3 /OUTPUT 1 "f"
+L_0x55625ba6c070 .functor NOT 1, v0x55625ba6bfa0_0, C4<0>, C4<0>, C4<0>;
+L_0x55625ba6c160 .functor AND 1, L_0x55625ba6c070, v0x55625ba6bdd0_0, C4<1>, C4<1>;
+L_0x55625ba6c270 .functor AND 1, v0x55625ba6bfa0_0, v0x55625ba6bea0_0, C4<1>, C4<1>;
+L_0x55625ba6c330 .functor OR 1, L_0x55625ba6c160, L_0x55625ba6c270, C4<0>, C4<0>;
+v0x55625ba59d50_0 .net *"_s0", 0 0, L_0x55625ba6c070;  1 drivers
+v0x55625ba6b770_0 .net *"_s2", 0 0, L_0x55625ba6c160;  1 drivers
+v0x55625ba6b850_0 .net *"_s4", 0 0, L_0x55625ba6c270;  1 drivers
+v0x55625ba6b940_0 .net "f", 0 0, L_0x55625ba6c330;  alias, 1 drivers
+v0x55625ba6ba00_0 .net "i0", 0 0, v0x55625ba6bdd0_0;  1 drivers
+v0x55625ba6bb10_0 .net "i1", 0 0, v0x55625ba6bea0_0;  1 drivers
+v0x55625ba6bbd0_0 .net "s", 0 0, v0x55625ba6bfa0_0;  1 drivers
+    .scope S_0x55625ba391c0;
 T_0 ;
     %vpi_call 2 6 "$dumpfile", "dump.vcd" {0 0 0};
     %vpi_call 2 7 "$dumpvars" {0 0 0};
     %vpi_call 2 8 "$display", $time, "|i0|i1|s|f" {0 0 0};
-    %vpi_call 2 9 "$monitor", $time, "|%d |%d |%d|%d|", v000002abf1175300_0, v000002abf11753a0_0, v000002abf1175440_0, v000002abf1175260_0 {0 0 0};
+    %vpi_call 2 9 "$monitor", $time, "|%d |%d |%d|%d|", v0x55625ba6bdd0_0, v0x55625ba6bea0_0, v0x55625ba6bfa0_0, v0x55625ba6bd10_0 {0 0 0};
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v000002abf1175300_0, 0, 1;
+    %store/vec4 v0x55625ba6bdd0_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v000002abf11753a0_0, 0, 1;
+    %store/vec4 v0x55625ba6bea0_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v000002abf1175440_0, 0, 1;
+    %store/vec4 v0x55625ba6bfa0_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v000002abf1175440_0, 0, 1;
+    %store/vec4 v0x55625ba6bfa0_0, 0, 1;
     %delay 10, 0;
     %vpi_call 2 13 "$finish" {0 0 0};
     %end;
@@ -54,5 +53,5 @@ T_0 ;
 :file_names 4;
     "N/A";
     "<interactive>";
-    ".\test_2multiplex.v";
-    ".\2bitmutiplex.v";
+    "test_2multiplex.v";
+    "2bitmutiplex.v";

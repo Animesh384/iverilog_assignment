@@ -1,0 +1,62 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55ef318727e0 .scope module, "nandXnor_test" "nandXnor_test" 2 13;
+ .timescale 0 0;
+v0x55ef31883260_0 .var "a", 0 0;
+v0x55ef31883300_0 .var "b", 0 0;
+v0x55ef318833d0_0 .net "y", 0 0, L_0x55ef31883880;  1 drivers
+S_0x55ef31872960 .scope module, "m" "nandXnor" 2 16, 2 1 0, S_0x55ef318727e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "y"
+L_0x55ef318834d0 .functor NAND 1, v0x55ef31883260_0, v0x55ef31883300_0, C4<1>, C4<1>;
+L_0x55ef31883610 .functor NAND 1, v0x55ef31883260_0, L_0x55ef318834d0, C4<1>, C4<1>;
+L_0x55ef318836d0 .functor NAND 1, v0x55ef31883300_0, L_0x55ef318834d0, C4<1>, C4<1>;
+L_0x55ef31883740 .functor NAND 1, L_0x55ef31883610, L_0x55ef318836d0, C4<1>, C4<1>;
+L_0x55ef31883880 .functor NAND 1, L_0x55ef31883740, L_0x55ef31883740, C4<1>, C4<1>;
+v0x55ef3183c030_0 .net "a", 0 0, v0x55ef31883260_0;  1 drivers
+v0x55ef31882d30_0 .net "b", 0 0, v0x55ef31883300_0;  1 drivers
+v0x55ef31882df0_0 .net "w1", 0 0, L_0x55ef318834d0;  1 drivers
+v0x55ef31882e90_0 .net "w2", 0 0, L_0x55ef31883610;  1 drivers
+v0x55ef31882f50_0 .net "w3", 0 0, L_0x55ef318836d0;  1 drivers
+v0x55ef31883060_0 .net "w4", 0 0, L_0x55ef31883740;  1 drivers
+v0x55ef31883120_0 .net "y", 0 0, L_0x55ef31883880;  alias, 1 drivers
+    .scope S_0x55ef318727e0;
+T_0 ;
+    %vpi_call 2 18 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 19 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55ef31883260_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55ef31883300_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55ef31883260_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55ef31883300_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55ef31883260_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55ef31883300_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55ef31883260_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55ef31883300_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 24 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "nandXnor.v";
